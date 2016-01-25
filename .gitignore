@@ -2,3 +2,6 @@
 servodata.js
 library.js
 jquery.min.js
+node_modules/
+tmp/
+dist/wofh-tools.dev.user.js
