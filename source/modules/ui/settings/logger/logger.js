@@ -31,11 +31,15 @@ $(document).on('click', '.js-wt-logger-add', function () {
 });
 
 $(document).on('click', '.js-wt-logger-remove', function () {
-    let $this = $(this);
     let type = $(this).data('type');
     let $select = $('.js-wt-' + type + '-list');
     let $option = $select.find('option').filter(':selected');
     let val = $option.text();
+
+    if (val == 'wofh-tools.ru/sci' || val == 'wofh-tools.ru/log') {
+        return;
+    }
+
     $option.remove();
     $select.find('option').filter(':first').attr('selected', true);
     $select.trigger('change');
