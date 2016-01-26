@@ -4,11 +4,12 @@ import "./modules/ui/ui.css";
 
 import i18n from "I18n.js";
 import observer from "Observer.js";
+import storage from "storage.js";
 import gameData from "GameData.js";
 import ui from "./modules/ui/UI.js";
 import settings from "./modules/ui/settings/settings.js";
 
-const VERSION = '2.0.0';
+const VERSION = '2.0.1';
 
 if (DEV_MODE) {
     ui.drawButtonDevMode();
@@ -31,6 +32,11 @@ observer.observe('/report/([\\d]+)', function (el, url) {
 gameData.ready(function (data) {
     console.info('Data read.', data);
     observer.start();
+
+    $(document).on('click', '.js-wt-science', function () {
+        let logger = storage.getLogger('scilogger');
+        gameData.send(data, logger);
+    });
 }, VERSION);
 
 $(document).on('click', '.js-wt-main', function () {
@@ -44,12 +50,9 @@ $(document).on('click', '.js-wt-main', function () {
     return false;
 });
 
-$(document).on('click', '.js-wt-science', function () {
-    gameData.send(data, 'wofh-tools.ru/sci');
-});
-
 $(document).on('click', '.js-wt-battle', function () {
     let id = parseInt($(this).data('id'));
     let data = window['wofh'].reports[id];
-    gameData.send(gameData.formatReportBattle(data), 'wofh-tools.ru/log');
+    let logger = storage.getLogger('warlogger');
+    gameData.send(gameData.formatReportBattle(data), logger);
 });

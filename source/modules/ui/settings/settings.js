@@ -1,6 +1,7 @@
 "use strict";
 
 import i18n from "I18n.js";
+import storage from "storage.js";
 import tplSettings from "./settings.twig";
 import Logger from "./logger/logger.js";
 
@@ -10,14 +11,12 @@ export default {
             loggerTitle         : i18n.text_SciLogger,
             loggerType          : 'scilogger',
             loggerDefaultLink   : 'wofh-tools.ru/sci',
-            loggers             : [],
             loggerPlaceholderAdd: i18n.text_ADD_SCI_HINT
         });
         let warLogger = new Logger({
             loggerTitle         : i18n.text_WarLogger,
             loggerType          : 'warlogger',
             loggerDefaultLink   : 'wofh-tools.ru/log',
-            loggers             : [],
             loggerPlaceholderAdd: i18n.text_ADD_WAR_HINT
         });
 
