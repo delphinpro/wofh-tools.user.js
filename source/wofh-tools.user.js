@@ -2,11 +2,11 @@
 
 import "./modules/ui/ui.css";
 
-import tplOptions from "./modules/ui/opts.twig";
-import observer from "./modules/Observer.js";
-import gameData from "./modules/GameData.js";
-import i18n from "./modules/I18n.js";
+import i18n from "I18n.js";
+import observer from "Observer.js";
+import gameData from "GameData.js";
 import ui from "./modules/ui/UI.js";
+import settings from "./modules/ui/settings/settings.js";
 
 const VERSION = '2.0.0';
 
@@ -34,25 +34,14 @@ gameData.ready(function (data) {
 }, VERSION);
 
 $(document).on('click', '.js-wt-main', function () {
-    let content = tplOptions($.extend(i18n, {
-        isNewTown: wofh.version.town == 'new' ? '-hover' : '',
-        isOldTown: wofh.version.town == 'old' ? '-hover' : ''
-    }));
-    wndMgr.addSimpleWnd(content, 'Wofh-Tools UserScript', 1, {
+    wndMgr.addSimpleWnd(settings.getHtml(), 'Wofh-Tools UserScript', 1, {
         moving  : true,
-        showBack: false,
+        showBack: true,
         canClose: true,
         noScroll: true,
         setHash : false
     });
     return false;
-});
-
-$(document).on('click', '.js-wt-scilogger-add', function () {
-    let $input = $('.js-wt-scilogger-new');
-    let text = $.trim($input.val());
-    $input.val('');
-    $('.js-wt-scilogger-list').append('<option>' + text + '</option>');
 });
 
 $(document).on('click', '.js-wt-science', function () {

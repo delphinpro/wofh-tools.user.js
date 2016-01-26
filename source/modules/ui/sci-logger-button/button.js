@@ -1,7 +1,7 @@
 "use strict";
 
+import i18n from "I18n.js";
 import template from "./button.twig";
-import i18n from "../../I18n.js";
 
 export default {
     insertToDOM: function (parentNode) {

@@ -1,6 +1,6 @@
 "use strict";
 
-import cookie from "./Cookie.js";
+import cookie from "Cookie.js";
 
 let i18n = {
     text_HybridInterface : ['Hybrid interface', 'Гибридный интерфейс'],

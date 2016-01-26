@@ -1,0 +1,21 @@
+<h3>{{ loggerTitle }}</h3>
+
+<div class="wt-panel-body">
+    <div class="wt-options-item">
+        <div class="wt-input">
+            <select class="opt_s js-wt-logger-list js-wt-{{ loggerType }}-list" data-type="{{ loggerType }}">
+                <option>{{ loggerDefaultLink }}</option>
+                {% for loggerLink in loggers %}
+                    <option {{ selectedLogger == loggerLink ? 'selected' : '' }}>{{ loggerLink }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="button1 js-wt-logger-remove" data-type="{{ loggerType }}">{{ text_Remove }}</button>
+    </div>
+    <div class="wt-options-item">
+        <div class="wt-input">
+            <input class="opt_i js-wt-logger-new" data-type="{{ loggerType }}" type="text" placeholder="{{ loggerPlaceholderAdd }}">
+        </div>
+        <button class="button1 js-wt-logger-add" data-type="{{ loggerType }}">{{ text_Add }}</button>
+    </div>
+</div>
