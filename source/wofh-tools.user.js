@@ -9,7 +9,7 @@ import gameData from "GameData.js";
 import ui from "./modules/ui/UI.js";
 import settings from "./modules/ui/settings/settings.js";
 
-const VERSION = '2.0.1';
+const VERSION = '2.0.2';
 
 if (DEV_MODE) {
     ui.drawButtonDevMode();
@@ -40,7 +40,7 @@ gameData.ready(function (data) {
 }, VERSION);
 
 $(document).on('click', '.js-wt-main', function () {
-    wndMgr.addSimpleWnd(settings.getHtml(), 'Wofh-Tools UserScript', 1, {
+    wndMgr.addSimpleWnd(settings.getHtml(), 'Wofh-Tools UserScript v' + VERSION, 1, {
         moving  : true,
         showBack: true,
         canClose: true,
