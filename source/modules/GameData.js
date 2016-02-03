@@ -196,5 +196,24 @@ export default {
             "templates": []
         };
         return report;
+    },
+
+    domainToSign: function (domain) {
+        let world, sign = 'en';
+
+        world = domain.match(/en([\d]+)\.waysofhistory\.com/);
+        if (!world) {
+            world = domain.match(/w([\d]+)\.wofh\.ru/);
+            sign = 'ru';
+        }
+        if (!world) {
+            world = domain.match(/w([\d]+)\.wofh\.de/);
+            sign = 'de';
+        }
+        if (!world) {
+            return null;
+        }
+
+        return sign + world[1];
     }
 };

@@ -4,9 +4,14 @@
         <div class="FM1 Fb1 Ft1 Fbg1">{{ warLoggerPanel }}</div>
     </div>
 
-    <div class="wt-options-item wt-options-item--centered">
-        <a href="/newtown" class="button1 -type-green {{ isNewTown }}"><span>{{ text_HybridInterface }}</span></a>
-        <a href="/oldtown" class="button1 -type-green {{ isOldTown }}"><span>{{ text_ClassicInterface }}</span></a>
-        <a href="/oldmap" class="button1 -type-green {{ isOldMap }}"><span>{{ text_ClassicMap }}</span></a>
+    <div class="wt-options-item wt-options-item--between">
+        <a href="http://wofh-tools.ru/stat/{{ worldSign }}/accounts/{{ accountId }}/"
+           target="_blank" class="button1"><span>{{ text_Statistic }}</span></a>
+
+        <div>
+            <a href="/newtown" class="button1 -type-green {{ isNewTown }}"><span>{{ text_HybridInterface }}</span></a>
+            <a href="/oldtown" class="button1 -type-green {{ isOldTown }}"><span>{{ text_ClassicInterface }}</span></a>
+            <a href="/oldmap" class="button1 -type-green {{ isOldMap }}"><span>{{ text_ClassicMap }}</span></a>
+        </div>
     </div>
 </div>

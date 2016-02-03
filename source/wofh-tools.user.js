@@ -9,7 +9,7 @@ import gameData from "GameData.js";
 import ui from "./modules/ui/UI.js";
 import settings from "./modules/ui/settings/settings.js";
 
-const VERSION = '2.0.2';
+const VERSION = '2.0.3';
 
 if (DEV_MODE) {
     ui.drawButtonDevMode();
@@ -37,18 +37,18 @@ gameData.ready(function (data) {
         let logger = storage.getLogger('scilogger');
         gameData.send(data, logger);
     });
-}, VERSION);
 
-$(document).on('click', '.js-wt-main', function () {
-    wndMgr.addSimpleWnd(settings.getHtml(), 'Wofh-Tools UserScript v' + VERSION, 1, {
-        moving  : true,
-        showBack: true,
-        canClose: true,
-        noScroll: true,
-        setHash : false
+    $(document).on('click', '.js-wt-main', function () {
+        wndMgr.addSimpleWnd(settings.getHtml(data), 'Wofh-Tools UserScript v' + VERSION, 1, {
+            moving  : true,
+            showBack: true,
+            canClose: true,
+            noScroll: true,
+            setHash : false
+        });
+        return false;
     });
-    return false;
-});
+}, VERSION);
 
 $(document).on('click', '.js-wt-battle', function () {
     let id = parseInt($(this).data('id'));

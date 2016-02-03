@@ -4,6 +4,7 @@ import cookie from "Cookie.js";
 
 let i18n = {
     text_HybridInterface : ['Hybrid interface', 'Гибридный интерфейс'],
+    text_Statistic       : ['Your statistics', 'Ваша статистика'],
     text_ClassicInterface: ['Classic interface', 'Классический интерфейс'],
     text_ClassicMap      : ['Classic map', 'Классическая карта'],
     text_Remove          : ['Remove', 'Удалить'],

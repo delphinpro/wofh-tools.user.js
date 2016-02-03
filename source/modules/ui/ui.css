@@ -33,7 +33,7 @@
   padding: 10px;
 }
 .wt-options-window .wt-panel-body {
-  padding: 0 20px 10px;
+  padding: 0 10px 10px;
 }
 .wt-options-window h3 {
   text-align: center;
@@ -47,11 +47,14 @@
 }
 
 .wt-options-item {
-  padding: 5px 0;
+  padding: 5px;
   display: flex;
 }
 .wt-options-item--centered {
   justify-content: center;
+}
+.wt-options-item--between {
+  justify-content: space-between;
 }
 .wt-options-item .wt-input {
   margin-right: 10px;

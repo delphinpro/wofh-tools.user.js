@@ -6,7 +6,7 @@ module.exports = "" +
     "// @copyright   copyright (c) 2014-2016 delphinpro\n" +
     "// @license     Licensed under the MIT license\n" +
     "// @description Wofh Tools client extension\n" +
-    "// @version     2.0.2\n" +
+    "// @version     2.0.3\n" +
     "// @grant       none\n" +
     "// @include     https://w*.wofh.ru/*\n" +
     "// @include     http://w*.wofh.de/*\n" +
