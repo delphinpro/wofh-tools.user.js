@@ -203,6 +203,10 @@ export default {
 
         world = domain.match(/en([\d]+)\.waysofhistory\.com/);
         if (!world) {
+            world = domain.match(/ru([\d]+)\.waysofhistory\.com/);
+            sign = 'ru';
+        }
+        if (!world) {
             world = domain.match(/w([\d]+)\.wofh\.ru/);
             sign = 'ru';
         }

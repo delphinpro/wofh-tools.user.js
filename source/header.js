@@ -6,10 +6,11 @@ module.exports = "" +
     "// @copyright   copyright (c) 2014-2016 delphinpro\n" +
     "// @license     Licensed under the MIT license\n" +
     "// @description Wofh Tools client extension\n" +
-    "// @version     2.0.3\n" +
+    "// @version     2.0.4\n" +
     "// @grant       none\n" +
     "// @include     https://w*.wofh.ru/*\n" +
     "// @include     http://w*.wofh.de/*\n" +
+    "// @include     https://ru*.waysofhistory.com/*\n" +
     "// @include     https://en*.waysofhistory.com/*\n" +
     "// @exclude     https://en.waysofhistory.com/\n" +
     "// @exclude     https://en.waysofhistory.com/forum\n" +
