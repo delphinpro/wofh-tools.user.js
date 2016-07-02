@@ -103,10 +103,6 @@ export default {
             if (typeof servodata.account != 'undefined') {
                 clearInterval(i);
 
-                console.info('READ DATA: servodata', servodata);
-                console.info('READ DATA: library', lib);
-                console.info('READ DATA: wofh', wofh);
-                console.info('READ DATA: LS', localStorage);
 
                 let data = formattingDataLegacy(servodata, lib);
                 data.usVer = usVer;
@@ -117,7 +113,6 @@ export default {
     },
 
     send: function (data, action) {
-        console.info('SEND: ', data);
         let form = $('<form/>', {
             action: 'http://' + action + '/',
             method: 'post',
@@ -145,7 +140,6 @@ export default {
         attacker.townId = r.data.attackers[0].town;
         attacker.townName = r.data.towns[attacker.townId][0];
 
-        console.info(r.data.defenders);
         let defending = {};
         defending.id = r.data.defenders ? r.data.defenders[0].acc : 0;
         defending.name = defending.id ? r.data.accounts[defending.id][0] : 0;
@@ -154,8 +148,6 @@ export default {
         defending.townId = r.data.defenders ? r.data.defenders[0].town : 0;
         defending.townName = defending.townId ? r.data.towns[defending.townId][0] : '';
 
-        console.info(attacker);
-        console.info(defending);
 
         let report = {
             "time"     : r.time,

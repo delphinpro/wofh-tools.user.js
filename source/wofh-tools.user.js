@@ -2,15 +2,14 @@
 
 import "./modules/ui/ui.css";
 
-import i18n from "I18n.js";
-import observer from "Observer.js";
-import storage from "storage.js";
-import gameData from "GameData.js";
+import observer from "./modules/Observer.js";
+import storage from "./modules/storage.js";
+import gameData from "./modules/GameData.js";
 import ui from "./modules/ui/UI.js";
 import settings from "./modules/ui/settings/settings.js";
+import VER from "./version";
 
-const VERSION = '2.0.3';
-
+//noinspection JSUnresolvedVariable
 if (DEV_MODE) {
     ui.drawButtonDevMode();
 }
@@ -18,19 +17,19 @@ if (DEV_MODE) {
 ui.drawButtonMain();
 
 observer.observe('/science', function (el) {
-    if (el.classList.contains("wnd-layer2")) {
+    if (el.classList.contains("-if-desk")) {
         ui.drawButtonScience(el);
     }
 });
 
 observer.observe('/report/([\\d]+)', function (el, url) {
-    if (el.classList.contains("wnd-layer2") && (window['wofh'].reports[url[1]].type == 19)) {
+    if (el.classList.contains("-if-desk") && (window['wofh'].reports[url[1]].type == 19)) {
         ui.drawButtonBattle(el, url[1]);
     }
 });
 
 gameData.ready(function (data) {
-    console.info('Data read.', data);
+    console.log('Data read.', data);
     observer.start();
 
     $(document).on('click', '.js-wt-science', function () {
@@ -39,7 +38,7 @@ gameData.ready(function (data) {
     });
 
     $(document).on('click', '.js-wt-main', function () {
-        wndMgr.addSimpleWnd(settings.getHtml(data), 'Wofh-Tools UserScript v' + VERSION, 1, {
+        wndMgr.addSimpleWnd(settings.getHtml(data), 'Wofh-Tools UserScript v' + VER, 1, {
             moving  : true,
             showBack: true,
             canClose: true,
@@ -48,7 +47,7 @@ gameData.ready(function (data) {
         });
         return false;
     });
-}, VERSION);
+}, VER);
 
 $(document).on('click', '.js-wt-battle', function () {
     let id = parseInt($(this).data('id'));

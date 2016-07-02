@@ -21,7 +21,6 @@ observer.start = function () {
 
         if (hash === '') {
             hashCache = hash;
-            console.info('hash cancelled', hash === '' ? "''" : hash);
             return;
         }
 
@@ -32,7 +31,6 @@ observer.start = function () {
 
         hashCache = hash;
 
-        console.info('hash', hash === '' ? "''" : hash);
 
         let callingHash;
         let urlParsed;
@@ -50,7 +48,6 @@ observer.start = function () {
             }
         }
 
-        console.info('selected hashId', callingHash);
 
         if (callingHash) {
             let callable = list[callingHash];
@@ -60,7 +57,6 @@ observer.start = function () {
                     && !/chat-messages/.test(node.target.className)
                     && !/js-timer/.test(node.target.className)
                 ) {
-                    console.info(node.target.classList);
                     if (typeof callable == 'function') {
                         callable(node.target, urlParsed);
                     }
@@ -71,12 +67,10 @@ observer.start = function () {
 
     observerObject.observe(document.body, observerOptions);
 
-    console.info("Observer initialized.");
 };
 
 observer.observe = function (key, callback) {
     list[key] = callback;
-    console.info('Observe added: ', key, list);
 };
 
 export default observer;

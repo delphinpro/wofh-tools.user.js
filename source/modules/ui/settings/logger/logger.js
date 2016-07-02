@@ -26,7 +26,6 @@ $(document).on('click', '.js-wt-logger-add', function () {
         $input.val('');
         $select.append(`<option>${val}</option>`);
     }
-    console.info('Logger added: ', val, storage.getData());
     return false;
 });
 
@@ -45,7 +44,6 @@ $(document).on('click', '.js-wt-logger-remove', function () {
     $select.trigger('change');
 
     storage.removeLogger(type, val);
-    console.info('Logger removed: ', val, storage.getData());
     return false;
 });
 
@@ -54,7 +52,6 @@ $(document).on('change', '.js-wt-logger-list', function(){
     let val = $this.find('option').filter(':selected').text();
     let type = $this.data('type');
     storage.selectLogger(type, val);
-    console.info('CHANGE TO: ', val);
 });
 
 export default LoggerPanel;

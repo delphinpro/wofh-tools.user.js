@@ -6,14 +6,13 @@ import template from "./button.twig";
 
 export default {
     insertToDOM: function (parentNode) {
-        let $container = $(parentNode).find('.science-account-info');
+        let $container = $(parentNode).find('.science-build-cont');
         if ($container.find('.js-wt-science').size() == 0) {
             let content = template($.extend(i18n, {
                 sendSciLoggerButtonClass: 'js-wt-science',
                 loggerLink: storage.getLogger('scilogger')
             }));
             $container.append(content);
-            console.info('Button "Send to SciLogger" inserted');
         }
     }
 }

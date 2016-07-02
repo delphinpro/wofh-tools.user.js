@@ -25,7 +25,6 @@ export default {
             accountId     : data.account[0],
             worldSign     : gameData.domainToSign(data.domain),
             isNewTown     : wofh.version.town == 'new' ? '-hover' : '',
-            isOldTown     : wofh.version.town == 'old' ? '-hover' : '',
             sciLoggerPanel: sciLogger.render(),
             warLoggerPanel: warLogger.render()
         }));

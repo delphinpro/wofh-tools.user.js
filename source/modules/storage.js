@@ -19,7 +19,6 @@ function readData() {
     }
     let rgData = JSON.parse(sData);
     storageData = $.extend(storageData, rgData);
-    console.info('WOFH_TOOLS Data: ', storageData);
 }
 
 function saveData() {

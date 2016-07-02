@@ -14,7 +14,6 @@ export default {
                 loggerLink: storage.getLogger('warlogger')
             }));
             $container.append(content);
-            console.info('Button "Send to WarLogger" inserted');
         }
     }
 }

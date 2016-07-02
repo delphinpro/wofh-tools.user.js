@@ -5,7 +5,6 @@ import cookie from "Cookie.js";
 let i18n = {
     text_HybridInterface : ['Hybrid interface', 'Гибридный интерфейс'],
     text_Statistic       : ['Your statistics', 'Ваша статистика'],
-    text_ClassicInterface: ['Classic interface', 'Классический интерфейс'],
     text_ClassicMap      : ['Classic map', 'Классическая карта'],
     text_Remove          : ['Remove', 'Удалить'],
     text_Add             : ['Add', 'Добавить'],
@@ -17,8 +16,7 @@ let i18n = {
     text_WarLogger       : ['WarLogger', 'Логовница']
 };
 
-let currentLang = cookie.get('lang') == 'en' ? 0 : 1;
-console.info('Current LANG: ', currentLang == 1 ? 'EN' : 'RU');
+let currentLang = cookie.get('lang') == 'ru' ? 1 : 0;
 
 for (let k in i18n) {
     if (!i18n.hasOwnProperty(k)) continue;
