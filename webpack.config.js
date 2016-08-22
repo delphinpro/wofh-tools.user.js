@@ -9,7 +9,7 @@
 
 const webpack = require("webpack");
 const headerString = require("./source/header.js");
-const NODE_ENV = process.env.NODE_ENV || "development";
+const NODE_ENV = process.env.NODE_ENV || "production";
 const DEV_BUILD = process.env.DEV_BUILD || false;
 const DEV_MODE = NODE_ENV == "development";
 
