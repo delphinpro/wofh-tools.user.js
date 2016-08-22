@@ -19,8 +19,11 @@ export default {
                 $menuList.append('' +
                     '<li>' +
                     '<a class="smenu-itemBtn button1 js-wt-main">WofhTools</a> ' +
-                    '<a class="smenu-itemIcn wt-btn-main js-wt-main" data-title="WofhTools"></a>' +
-                    '</li>');
+                    '<a class="js-wt-main">' +
+                    '<span class="smenuIcon wt-btn-main" data-title="WofhTools"></span>' +
+                    '</a>' +
+                    '</li>'
+                );
             }
         }, 100);
     },
