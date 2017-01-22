@@ -24,11 +24,12 @@ export default {
         });
 
         return tplSettings(JQ.extend(i18n, {
-            accountId     : data.account[0],
-            worldSign     : gameData.domainToSign(data.domain),
-            isNewTown     : wofh.version.town == 'new' ? '-hover' : '',
-            sciLoggerPanel: sciLogger.render(),
-            warLoggerPanel: warLogger.render()
+            accountId               : data.account[0],
+            worldSign               : gameData.domainToSign(data.domain),
+            isNewTown               : wofh.version.town == 'new' ? '-hover' : '',
+            sciLoggerPanel          : sciLogger.render(),
+            warLoggerPanel          : warLogger.render(),
+            isRussian               : storage.getLang() == 'ru',
         }));
     }
 }

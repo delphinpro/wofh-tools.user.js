@@ -1,7 +1,7 @@
 .wt-btn-dev-mode {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 20px;
   background: black;
   color: white;
   padding: 5px 10px;
@@ -23,7 +23,7 @@
   cursor: pointer;
 }
 
-.smenu-itemIcn.wt-btn-main {
+.smenuIcon.wt-btn-main {
   background: url(icon-wt.png);
   background-size: contain;
 }
@@ -47,8 +47,9 @@
 }
 
 .wt-options-item {
-  padding: 5px;
+  padding: 10px 5px;
   display: flex;
+  align-items: center;
 }
 .wt-options-item--centered {
   justify-content: center;

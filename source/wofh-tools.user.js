@@ -4,6 +4,7 @@ import JQ from "jquery";
 
 import "./modules/ui/ui.css";
 
+import i18n from "./modules/I18n";
 import observer from "./modules/Observer.js";
 import storage from "./modules/storage.js";
 import gameData from "./modules/GameData.js";
@@ -53,6 +54,17 @@ gameData.ready(function (data) {
         return false;
     });
 }, VER);
+
+JQ(document).on('change', '#js-wt-lang-switch', function () {
+    if (JQ(this).is(':checked')) {
+        storage.setLang('ru');
+        i18n.update(1);
+    } else {
+        storage.setLang('en');
+        i18n.update(0);
+    }
+    JQ('.js-wt-main').trigger('click');
+});
 
 JQ(document).on('click', '.js-wt-battle', function () {
     let id = parseInt(JQ(this).data('id'));

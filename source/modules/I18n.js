@@ -1,11 +1,9 @@
 "use strict";
 
-import cookie from "Cookie.js";
+import storage from './storage.js';
 
-let i18n = {
-    text_HybridInterface : ['Hybrid interface', 'Гибридный интерфейс'],
+let translations = {
     text_Statistic       : ['Your statistics', 'Ваша статистика'],
-    text_ClassicMap      : ['Classic map', 'Классическая карта'],
     text_Remove          : ['Remove', 'Удалить'],
     text_Add             : ['Add', 'Добавить'],
     text_ADD_SCI_HINT    : ['Custom address of scilogger', 'Адрес альтернативной науковницы'],
@@ -13,16 +11,32 @@ let i18n = {
     text_ToSciLogger     : ['Send to SciLogger', 'Отправить в науковницу'],
     text_ToWarLogger     : ['Send to WarLogger', 'Отправить в логовницу'],
     text_SciLogger       : ['SciLogger', 'Науковница'],
-    text_WarLogger       : ['WarLogger', 'Логовница']
+    text_WarLogger       : ['WarLogger', 'Логовница'],
 };
 
-let currentLang = cookie.get('lang') == 'ru' ? 1 : 0;
+let i18n = {
+    text_Statistic       : translations[0],
+    text_Remove          : translations[0],
+    text_Add             : translations[0],
+    text_ADD_SCI_HINT    : translations[0],
+    text_ADD_WAR_HINT    : translations[0],
+    text_ToSciLogger     : translations[0],
+    text_ToWarLogger     : translations[0],
+    text_SciLogger       : translations[0],
+    text_WarLogger       : translations[0],
 
-for (let k in i18n) {
-    if (!i18n.hasOwnProperty(k)) continue;
-    if (i18n[k][currentLang]) {
-        i18n[k] = i18n[k][currentLang];
-    }
-}
+    update : function(lang) {
+        for (let k in translations) {
+            if (!translations.hasOwnProperty(k)) continue;
+            if (translations[k][lang]) {
+                this[k] = translations[k][lang];
+            }
+        }
+    },
+};
+
+let currentLang = storage.getLang() == 'ru' ? 1 : 0;
+
+i18n.update(currentLang);
 
 export default i18n;

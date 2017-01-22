@@ -11,7 +11,8 @@ let storageData = {
     loggers       : {
         scilogger: [],
         warlogger: []
-    }
+    },
+    lang          : 'en',
 };
 
 function readData() {
@@ -64,5 +65,15 @@ export default {
 
     getData: function () {
         return storageData;
+    },
+
+    getLang: function () {
+        return storageData.lang;
+    },
+
+    setLang: function (lang) {
+        lang = lang == 'ru' ? 'ru' : 'en';
+        storageData.lang = lang;
+        saveData();
     }
 }
