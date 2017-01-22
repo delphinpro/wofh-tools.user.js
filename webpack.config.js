@@ -55,6 +55,8 @@ module.exports = {
         fs: "empty"
     },
     module : {
+        noParse: '/jquery.js/',
+
         loaders: [{
             test  : /\.twig$/,
             loader: "twig-loader"
@@ -63,6 +65,7 @@ module.exports = {
             loader: "style!css!autoprefixer?browsers=last 2 versions"
         },{
             test  : /\.js$/,
+            exclude: /\/node_modules\//,
             loader: "babel?presets[]=es2015"
         }, {
             test: /\.(png)$/,

@@ -1,5 +1,7 @@
 "use strict";
 
+import JQ from "jquery";
+
 function stateStringToArray(state, currentId) {
     state = state.replace(/-/g, '0').replace(/\*/g, '1').replace(/\+/g, '2').split('');
     for (let i in state) {
@@ -113,13 +115,13 @@ export default {
     },
 
     send: function (data, action) {
-        let form = $('<form/>', {
+        let form = JQ('<form/>', {
             action: 'http://' + action + '/',
             method: 'post',
             target: '_blank',
             css   : {display: 'none'}
         });
-        $('<input/>', {
+        JQ('<input/>', {
             type : 'hidden',
             name : 'sData',
             value: encodeURIComponent(JSON.stringify(data))

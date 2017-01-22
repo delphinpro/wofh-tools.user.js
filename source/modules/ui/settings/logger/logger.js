@@ -1,5 +1,7 @@
 "use strict";
 
+import JQ from "jquery";
+
 import i18n from "I18n.js";
 import storage from "storage.js";
 import template from "./logger.twig";
@@ -12,15 +14,15 @@ class LoggerPanel {
     }
 
     render() {
-        return template($.extend(i18n, this.data));
+        return template(JQ.extend(i18n, this.data));
     }
 }
 
-$(document).on('click', '.js-wt-logger-add', function () {
-    let type = $(this).data('type');
-    let $input = $('.js-wt-logger-new').filter('[data-type="' + type + '"]');
-    let $select = $('.js-wt-' + type + '-list');
-    let val = $.trim($input.val());
+JQ(document).on('click', '.js-wt-logger-add', function () {
+    let type = JQ(this).data('type');
+    let $input = JQ('.js-wt-logger-new').filter('[data-type="' + type + '"]');
+    let $select = JQ('.js-wt-' + type + '-list');
+    let val = JQ.trim($input.val());
     if (val && !storage.existsLogger(type, val)) {
         storage.addLogger(type, val);
         $input.val('');
@@ -29,9 +31,9 @@ $(document).on('click', '.js-wt-logger-add', function () {
     return false;
 });
 
-$(document).on('click', '.js-wt-logger-remove', function () {
-    let type = $(this).data('type');
-    let $select = $('.js-wt-' + type + '-list');
+JQ(document).on('click', '.js-wt-logger-remove', function () {
+    let type = JQ(this).data('type');
+    let $select = JQ('.js-wt-' + type + '-list');
     let $option = $select.find('option').filter(':selected');
     let val = $option.text();
 
@@ -47,8 +49,8 @@ $(document).on('click', '.js-wt-logger-remove', function () {
     return false;
 });
 
-$(document).on('change', '.js-wt-logger-list', function(){
-    let $this = $(this);
+JQ(document).on('change', '.js-wt-logger-list', function(){
+    let $this = JQ(this);
     let val = $this.find('option').filter(':selected').text();
     let type = $this.data('type');
     storage.selectLogger(type, val);

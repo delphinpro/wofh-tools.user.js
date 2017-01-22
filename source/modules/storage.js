@@ -1,5 +1,7 @@
 "use strict";
 
+import JQ from 'jquery';
+
 let storageKey = 'wofh-tools.ru';
 let storageData = {
     selectedLogger: {
@@ -18,7 +20,7 @@ function readData() {
         sData = '{}';
     }
     let rgData = JSON.parse(sData);
-    storageData = $.extend(storageData, rgData);
+    storageData = JQ.extend(storageData, rgData);
 }
 
 function saveData() {

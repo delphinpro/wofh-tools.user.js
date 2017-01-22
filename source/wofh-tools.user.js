@@ -1,5 +1,7 @@
 "use strict";
 
+import JQ from "jquery";
+
 import "./modules/ui/ui.css";
 
 import observer from "./modules/Observer.js";
@@ -32,13 +34,13 @@ gameData.ready(function (data) {
     console.log('Data read.', data);
     observer.start();
 
-    $(document).on('click', '.js-wt-science', function () {
+    JQ(document).on('click', '.js-wt-science', function () {
         let logger = storage.getLogger('scilogger');
         gameData.send(data, logger);
     });
 
-    $(document).on('click', '.js-wt-main', function () {
         wndMgr.addSimpleWnd(settings.getHtml(data), 'Wofh-Tools UserScript v' + VER, 1, {
+    JQ(document).on('click', '.js-wt-main', function () {
             moving  : true,
             showBack: true,
             canClose: true,
@@ -49,8 +51,8 @@ gameData.ready(function (data) {
     });
 }, VER);
 
-$(document).on('click', '.js-wt-battle', function () {
-    let id = parseInt($(this).data('id'));
+JQ(document).on('click', '.js-wt-battle', function () {
+    let id = parseInt(JQ(this).data('id'));
     let data = window['wofh'].reports[id];
     let logger = storage.getLogger('warlogger');
     gameData.send(gameData.formatReportBattle(data), logger);

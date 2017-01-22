@@ -2,18 +2,19 @@
 
 import sciLoggerButton from "./sci-logger-button/button.js";
 import warLoggerButton from "./war-logger-button/button.js";
+import JQ from "jquery";
 
 export default {
     drawButtonMain: function () {
 
-        if ($('#m2_town').size()) {
+        if (JQ('#m2_town').size()) {
             this.drawButtonMainLegacy();
             return;
         }
 
         let i;
         i = setInterval(function () {
-            let $menuList = $('.smenu-list');
+            let $menuList = JQ('.smenu-list');
             if ($menuList.size()) {
                 clearInterval(i);
                 $menuList.append('' +
@@ -29,13 +30,13 @@ export default {
     },
 
     drawButtonMainLegacy: function () {
-        var wtButton = $('<div/>', {'class': 'wt-main-button js-wt-main'});
-        wtButton.prependTo($('#m2_town').closest('.m2'));
-        $('<span/>').appendTo(wtButton);
+        let wtButton = JQ('<div/>', {'class': 'wt-main-button js-wt-main'});
+        wtButton.prependTo(JQ('#m2_town').closest('.m2'));
+        JQ('<span/>').appendTo(wtButton);
     },
 
     drawButtonDevMode: function () {
-        $("<a/>", {
+        JQ("<a/>", {
             href   : "/?test",
             text   : "ENTER TO DEV MODE",
             "class": "wt-btn-dev-mode"
