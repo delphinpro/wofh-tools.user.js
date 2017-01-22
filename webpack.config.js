@@ -13,7 +13,7 @@ const NODE_ENV = process.env.NODE_ENV || "production";
 const DEV_BUILD = process.env.DEV_BUILD || false;
 const DEV_MODE = NODE_ENV == "development";
 
-var plugins = [
+let plugins = [
     new webpack.DefinePlugin({
         NODE_ENV: JSON.stringify(NODE_ENV),
         DEV_MODE: JSON.stringify(DEV_MODE)

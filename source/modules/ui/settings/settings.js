@@ -1,12 +1,12 @@
 "use strict";
 
-import JQ from "jquery";
+import JQ from 'jquery';
 
-import i18n from "I18n.js";
-import storage from "storage.js";
-import tplSettings from "./settings.twig";
-import Logger from "./logger/logger.js";
-import gameData from "GameData.js";
+import i18n from '../../I18n';
+import storage from '../../storage';
+import tplSettings from './settings.twig';
+import Logger from './logger/logger';
+import gameData from '../../GameData';
 
 export default {
     getHtml: function (data) {

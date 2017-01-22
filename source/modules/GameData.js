@@ -1,6 +1,6 @@
 "use strict";
 
-import JQ from "jquery";
+import JQ from 'jquery';
 
 function stateStringToArray(state, currentId) {
     state = state.replace(/-/g, '0').replace(/\*/g, '1').replace(/\+/g, '2').split('');

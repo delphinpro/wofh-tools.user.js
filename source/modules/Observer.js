@@ -5,8 +5,8 @@ let observer = {};
 let list = [];
 let observerObject = null;
 let observerOptions = {
-    "childList": true,
-    "subtree"  : true
+    'childList': true,
+    'subtree'  : true
 };
 
 

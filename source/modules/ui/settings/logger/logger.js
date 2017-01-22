@@ -1,10 +1,10 @@
 "use strict";
 
-import JQ from "jquery";
+import JQ from 'jquery';
 
-import i18n from "I18n.js";
-import storage from "storage.js";
-import template from "./logger.twig";
+import i18n from '../../../I18n';
+import storage from '../../../storage';
+import template from './logger.twig';
 
 class LoggerPanel {
     constructor(data) {
@@ -49,7 +49,7 @@ JQ(document).on('click', '.js-wt-logger-remove', function () {
     return false;
 });
 
-JQ(document).on('change', '.js-wt-logger-list', function(){
+JQ(document).on('change', '.js-wt-logger-list', function () {
     let $this = JQ(this);
     let val = $this.find('option').filter(':selected').text();
     let type = $this.data('type');
