@@ -1,8 +1,6 @@
 "use strict";
 
-import sciLoggerButton from "./sci-logger-button/button.js";
-import warLoggerButton from "./war-logger-button/button.js";
-import JQ from "jquery";
+import JQ from 'jquery';
 
 export default {
     drawButtonMain: function () {
@@ -36,18 +34,10 @@ export default {
     },
 
     drawButtonDevMode: function () {
-        JQ("<a/>", {
-            href   : "/?test",
-            text   : "ENTER TO DEV MODE",
-            "class": "wt-btn-dev-mode"
-        }).appendTo("body");
-    },
-
-    drawButtonScience: function(parentNode) {
-        sciLoggerButton.insertToDOM(parentNode);
-    },
-
-    drawButtonBattle: function(parentNode, reportId) {
-        warLoggerButton.insertToDOM(parentNode, reportId);
+        JQ('<a/>', {
+            href   : '/?test',
+            text   : 'ENTER TO DEV MODE',
+            'class': 'wt-btn-dev-mode'
+        }).appendTo('body');
     }
 }

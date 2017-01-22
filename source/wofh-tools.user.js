@@ -22,18 +22,6 @@ if (DEV_MODE) {
 
 ui.drawButtonMain();
 
-observer.observe('/science', function (el) {
-    if (el.classList.contains("-if-desk")) {
-        ui.drawButtonScience(el);
-    }
-});
-
-observer.observe('/report/([\\d]+)', function (el, url) {
-    if (el.classList.contains("-if-desk") && (window['wofh'].reports[url[1]].type == 19)) {
-        ui.drawButtonBattle(el, url[1]);
-    }
-});
-
 gameData.ready(function (data) {
     console.log('Data read.', data);
     observer.start();

@@ -9,8 +9,14 @@
            target="_blank" class="button1"><span>{{ text_Statistic }}</span></a>
 
         <div>
-            <a href="/newtown" class="button1 -type-green {{ isNewTown }}"><span>{{ text_HybridInterface }}</span></a>
-            <a href="/oldmap" class="button1 -type-green {{ isOldMap }}"><span>{{ text_ClassicMap }}</span></a>
+            <button class="button1 -type-green {{ sendSciLoggerButtonClass }}"><span>{{ text_ToSciLogger }}</span></button>
+            <button class="button1 -type-green -disabled {{ sendWarLoggerButtonClass }}"
+                    data-id="{{ reportId }}" disabled>
+                <span>{{ text_ToWarLogger }}</span>
+            </button>
+
+            {#<a href="/newtown" class="button1 -type-green {{ isNewTown }}"><span>{{ text_HybridInterface }}</span></a>#}
+            {#<a href="/oldmap" class="button1 -type-green {{ isOldMap }}"><span>{{ text_ClassicMap }}</span></a>#}
         </div>
     </div>
 

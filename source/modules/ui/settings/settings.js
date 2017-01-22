@@ -30,6 +30,7 @@ export default {
             sciLoggerPanel          : sciLogger.render(),
             warLoggerPanel          : warLogger.render(),
             isRussian               : storage.getLang() == 'ru',
+            sendSciLoggerButtonClass: 'js-wt-science',
         }));
     }
 }
