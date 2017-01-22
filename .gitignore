@@ -5,3 +5,4 @@ jquery.min.js
 node_modules/
 tmp/
 dist/wofh-tools.dev.user.js
+dist/wofh-tools.dev.js
