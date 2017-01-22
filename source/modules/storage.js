@@ -3,7 +3,7 @@
 import JQ from 'jquery';
 
 let storageKey = 'wofh-tools.ru';
-let storageData = {
+let defaultStorageData = {
     selectedLogger: {
         scilogger: 'wofh-tools.ru/sci',
         warlogger: 'wofh-tools.ru/log'
@@ -14,6 +14,7 @@ let storageData = {
     },
     lang          : 'en',
 };
+let storageData = JQ.extend({}, defaultStorageData);
 
 function readData() {
     let sData = localStorage.getItem(storageKey);
@@ -38,14 +39,19 @@ export default {
     },
 
     addLogger: function (type, data) {
-        storageData.loggers[type].push(data);
-        saveData();
+        if (!this.existsLogger(type, data)) {
+            storageData.loggers[type].push(data);
+            saveData();
+        }
     },
 
     removeLogger: function (type, data) {
-        let index = storageData.loggers[type].indexOf(data);
-        storageData.loggers[type].splice(index, 1);
-        saveData();
+        if (this.existsLogger(type, data) && this.getDefaultLogger(type) != data) {
+            let index = storageData.loggers[type].indexOf(data);
+            storageData.loggers[type].splice(index, 1);
+            storageData.selectedLogger[type] = defaultStorageData.selectedLogger[type];
+            saveData();
+        }
     },
 
     selectLogger: function (type, data) {
@@ -61,6 +67,10 @@ export default {
 
     getLogger: function (type) {
         return storageData.selectedLogger[type];
+    },
+
+    getDefaultLogger: function(type) {
+        return defaultStorageData.selectedLogger[type];
     },
 
     getData: function () {

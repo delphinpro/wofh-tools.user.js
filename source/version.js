@@ -6,6 +6,6 @@
  * @license     Licensed under the MIT license
  */
 
-const VERSION = '2.0.7';
+const VERSION = '2.0.8';
 
 export default VERSION;

@@ -37,7 +37,7 @@ JQ(document).on('click', '.js-wt-logger-remove', function () {
     let $option = $select.find('option').filter(':selected');
     let val = $option.text();
 
-    if (val == 'wofh-tools.ru/sci' || val == 'wofh-tools.ru/log') {
+    if (val == storage.getDefaultLogger(type)) {
         return;
     }
 
