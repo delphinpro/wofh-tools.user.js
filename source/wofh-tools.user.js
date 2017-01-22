@@ -11,9 +11,12 @@ import ui from "./modules/ui/UI.js";
 import settings from "./modules/ui/settings/settings.js";
 import VER from "./version";
 
+let WINDOW_TITLE = 'Wofh-Tools UserScript v' + VER;
+
 //noinspection JSUnresolvedVariable
 if (DEV_MODE) {
     ui.drawButtonDevMode();
+    WINDOW_TITLE = 'Wofh-Tools UserScript v' + VER + ' (DEBUG MODE)';
 }
 
 ui.drawButtonMain();
@@ -39,10 +42,10 @@ gameData.ready(function (data) {
         gameData.send(data, logger);
     });
 
-        wndMgr.addSimpleWnd(settings.getHtml(data), 'Wofh-Tools UserScript v' + VER, 1, {
     JQ(document).on('click', '.js-wt-main', function () {
+        wndMgr.addSimpleWnd(settings.getHtml(data), WINDOW_TITLE, 1, {
             moving  : true,
-            showBack: true,
+            showBack: false,
             canClose: true,
             noScroll: true,
             setHash : false
