@@ -5,6 +5,11 @@
     "type": "git",
     "url": "https://github.com/delphinpro/wofh-tools.user.js.git"
   },
+  "scripts": {
+    "start": "set NODE_ENV=development&&webpack",
+    "build": "set NODE_ENV=production&&webpack",
+    "build:dev": "set NODE_ENV=development&&set DEV_BUILD=1&&webpack"
+  },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.4.5",
