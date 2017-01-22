@@ -2,7 +2,7 @@
 
 import JQ from "jquery";
 
-import "./modules/ui/ui.css";
+import "./modules/ui/ui.scss";
 
 import i18n from "./modules/I18n";
 import observer from "./modules/Observer.js";

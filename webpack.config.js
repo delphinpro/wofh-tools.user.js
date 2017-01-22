@@ -61,6 +61,9 @@ module.exports = {
             test  : /\.twig$/,
             loader: "twig-loader"
         }, {
+            test  : /\.scss$/,
+            loader: "style!css!autoprefixer?browsers=last 2 versions!sass"
+        }, {
             test  : /\.css$/,
             loader: "style!css!autoprefixer?browsers=last 2 versions"
         },{
