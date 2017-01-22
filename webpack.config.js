@@ -49,7 +49,7 @@ module.exports = {
     },
     output : {
         path    : "./dist",
-        filename: DEV_MODE ? "wofh-tools.dev.user.js" : "wofh-tools.user.js"
+        filename: DEV_MODE ? "wofh-tools.dev.js" : "wofh-tools.user.js"
     },
     node: {
         fs: "empty"
