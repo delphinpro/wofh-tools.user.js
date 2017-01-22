@@ -102,7 +102,7 @@ export default {
     ready: function (complete, usVer) {
         let i;
         i = setInterval(function () {
-            if (typeof servodata.account != 'undefined') {
+            if (typeof window.servodata != 'undefined' && typeof servodata.account != 'undefined') {
                 clearInterval(i);
 
 
