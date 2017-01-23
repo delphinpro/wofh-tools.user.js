@@ -7,7 +7,7 @@ See [http://wofh-tools.ru/sci/](http://wofh-tools.ru/sci/)
 ##Development
 
 ###Begin
-    git clone https://delphinpro/wofh-tools.user.js
+    git clone https://github.com/delphinpro/wofh-tools.user.js
     npm install
 
 ###Commands:
@@ -20,6 +20,6 @@ __Build production__
 
     npm run build
 
-__Build development version__
+__Build development version (not watching files)__
 
     npm run build:dev
