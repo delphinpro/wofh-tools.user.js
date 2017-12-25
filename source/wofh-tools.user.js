@@ -7,9 +7,11 @@ import storage from './modules/storage.js';
 import gameData from './modules/GameData.js';
 import ui from './modules/ui/UI.js';
 import settings from './modules/ui/settings/settings.js';
-import VER from './version';
+import pkg from '../package.json';
 import g from './modules/windowObject';
 
+
+const VER = pkg.version;
 
 (function() {
   // let $ = unsafeWindow.jQuery;
