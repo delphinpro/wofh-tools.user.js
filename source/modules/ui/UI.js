@@ -32,12 +32,4 @@ export default {
         wtButton.prependTo(JQ('#m2_town').closest('.m2'));
         JQ('<span/>').appendTo(wtButton);
     },
-
-    drawButtonDevMode: function () {
-        JQ('<a/>', {
-            href   : '/?test',
-            text   : 'ENTER TO DEV MODE',
-            'class': 'wt-btn-dev-mode'
-        }).appendTo('body');
-    }
 }

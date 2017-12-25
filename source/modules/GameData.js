@@ -1,6 +1,8 @@
 "use strict";
 
 import JQ from 'jquery';
+import g from './windowObject';
+
 
 function stateStringToArray(state, currentId) {
     state = state.replace(/-/g, '0').replace(/\*/g, '1').replace(/\+/g, '2').split('');
@@ -100,17 +102,25 @@ function formattingDataLegacy(s, lib) {
 
 export default {
     ready: function (complete, usVer) {
-        let i;
+        console.log('ready...');
+        let i, counter = 0;
+        console.log(g, g.servodata);
         i = setInterval(function () {
-            if (typeof window.servodata != 'undefined' && typeof servodata.account != 'undefined') {
+            if (counter > 5) clearInterval(i);
+            if (typeof window.servodata !== 'undefined' && typeof servodata.account != 'undefined') {
                 clearInterval(i);
 
+                // console.info('READ DATA: servodata', servodata);
+                // console.info('READ DATA: library', lib);
+                // console.info('READ DATA: wofh', wofh);
+                // console.info('READ DATA: LS', localStorage);
 
                 let data = formattingDataLegacy(servodata, lib);
                 data.usVer = usVer;
 
                 complete(data);
             }
+            counter++;
         }, 100);
     },
 

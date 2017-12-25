@@ -10,6 +10,7 @@ import gameData from '../../GameData';
 
 export default {
     getHtml: function (data) {
+        console.log(data);
         let sciLogger = new Logger({
             loggerTitle         : i18n.text_SciLogger,
             loggerType          : 'scilogger',
@@ -24,8 +25,8 @@ export default {
         });
 
         return tplSettings(JQ.extend(i18n, {
-            accountId               : data.account[0],
-            worldSign               : gameData.domainToSign(data.domain),
+            accountId               : data.account.id,
+            worldSign               : 'ru1t',//gameData.domainToSign(data.domain),
             isNewTown               : wofh.version.town == 'new' ? '-hover' : '',
             sciLoggerPanel          : sciLogger.render(),
             warLoggerPanel          : warLogger.render(),

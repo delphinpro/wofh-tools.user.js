@@ -11,7 +11,7 @@ const webpack = require("webpack");
 const headerString = require("./source/header.js");
 const NODE_ENV = process.env.NODE_ENV || "production";
 const DEV_BUILD = process.env.DEV_BUILD || false;
-const DEV_MODE = NODE_ENV == "development";
+const DEV_MODE = NODE_ENV === "development";
 
 let plugins = [
     new webpack.DefinePlugin({
@@ -21,7 +21,7 @@ let plugins = [
     new webpack.optimize.DedupePlugin()
 ];
 
-if (NODE_ENV == "production") {
+if (NODE_ENV === "production") {
     plugins.push(new webpack.optimize.UglifyJsPlugin({
         compress: {
             drop_console: true
@@ -43,13 +43,12 @@ module.exports = {
     entry  : "./source/wofh-tools.user.js",
     resolve: {
         modulesDirectories: [
-            "./source/modules",
             "node_modules"
         ]
     },
     output : {
         path    : "./dist",
-        filename: DEV_MODE ? "wofh-tools.dev.js" : "wofh-tools.user.js"
+        filename: DEV_MODE ? "wofh-tools.dev.user.js" : "wofh-tools.user.js"
     },
     node: {
         fs: "empty"
